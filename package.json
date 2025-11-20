@@ -1,6 +1,6 @@
 {
   "name": "@davide94/llm-provider",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Unified LLM provider abstraction with Langfuse tracing",
   "repository": {
     "type": "git",

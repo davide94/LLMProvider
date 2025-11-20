@@ -259,9 +259,7 @@ export {
   LLMReasoning,
   TimeoutError,
   UnsupportedProviderError,
-  createLLM,
   createLLMError,
-  detectProvider,
   generate,
   generateStructured,
   generateWithOpenAI

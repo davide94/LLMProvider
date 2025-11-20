@@ -171,10 +171,6 @@ interface GeminiConfig extends LLMConfig {
 type LLMProviderConfig = OpenAIConfig | AnthropicConfig | GeminiConfig;
 
 /**
- * Auto-detect LLM provider from model name
- */
-declare function detectProvider(model: string): LLMProvider;
-/**
  * Main LLM class - provides unified interface for all providers
  */
 declare class LLM {
@@ -191,12 +187,6 @@ declare class LLM {
      */
     getConfig(): LLMConfig;
 }
-/**
- * Helper function to create an LLM instance
- * @param config - LLM configuration
- * @returns LLM instance
- */
-declare function createLLM(config: LLMConfig): LLM;
 /**
  * Helper function for quick text generation
  * @param model - Model name
@@ -265,4 +255,4 @@ declare function createLLMError(options: {
  */
 declare function generateWithOpenAI(prompt: string | LLMMessage[], config: LLMConfig): Promise<LLMResponse>;
 
-export { APIKeyError, type AnthropicConfig, type GeminiConfig, LLM, type LLMConfig, type LLMContentPart, type LLMContentPartFileBase64, type LLMContentPartFileId, type LLMContentPartFileURL, type LLMContentPartImage, type LLMContentPartText, LLMError, type LLMMessage, type LLMMessageContent, LLMProvider, type LLMProviderConfig, LLMReasoning, type LLMResponse, type MessageRole, type OpenAIConfig, TimeoutError, UnsupportedProviderError, createLLM, createLLMError, detectProvider, generate, generateStructured, generateWithOpenAI };
+export { APIKeyError, type AnthropicConfig, type GeminiConfig, LLM, type LLMConfig, type LLMContentPart, type LLMContentPartFileBase64, type LLMContentPartFileId, type LLMContentPartFileURL, type LLMContentPartImage, type LLMContentPartText, LLMError, type LLMMessage, type LLMMessageContent, LLMProvider, type LLMProviderConfig, LLMReasoning, type LLMResponse, type MessageRole, type OpenAIConfig, TimeoutError, UnsupportedProviderError, createLLMError, generate, generateStructured, generateWithOpenAI };

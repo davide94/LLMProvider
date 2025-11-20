@@ -37,9 +37,7 @@ __export(index_exports, {
   LLMReasoning: () => LLMReasoning,
   TimeoutError: () => TimeoutError,
   UnsupportedProviderError: () => UnsupportedProviderError,
-  createLLM: () => createLLM,
   createLLMError: () => createLLMError,
-  detectProvider: () => detectProvider,
   generate: () => generate,
   generateStructured: () => generateStructured,
   generateWithOpenAI: () => generateWithOpenAI
@@ -308,9 +306,7 @@ var LLMReasoning = /* @__PURE__ */ ((LLMReasoning2) => {
   LLMReasoning,
   TimeoutError,
   UnsupportedProviderError,
-  createLLM,
   createLLMError,
-  detectProvider,
   generate,
   generateStructured,
   generateWithOpenAI

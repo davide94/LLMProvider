@@ -1,7 +1,14 @@
 {
-  "name": "llm-provider",
+  "name": "@davide94/llm-provider",
   "version": "0.1.1",
   "description": "Unified LLM provider abstraction with Langfuse tracing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davide94/LLMProvider.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

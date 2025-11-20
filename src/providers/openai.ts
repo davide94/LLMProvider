@@ -8,6 +8,15 @@ import type { ResponseInput, ResponseInputItem } from 'openai/resources/response
 import type { LLMConfig, LLMResponse, LLMProvider, LLMMessage, LLMContentPart } from '../core/types'
 import { LLMError, APIKeyError, TimeoutError } from '../core/errors'
 
+import { NodeSDK } from '@opentelemetry/sdk-node'
+import { LangfuseSpanProcessor } from '@langfuse/otel'
+
+const sdk = new NodeSDK({
+  spanProcessors: [new LangfuseSpanProcessor()]
+})
+
+sdk.start()
+
 /**
  * OpenAI client singleton
  */

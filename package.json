@@ -48,6 +48,8 @@
     "@google/generative-ai": "^0.24.1",
     "@langfuse/client": "^4.4.2",
     "@langfuse/openai": "^4.4.2",
+    "@langfuse/otel": "^4.4.2",
+    "@opentelemetry/sdk-node": "^0.208.0",
     "openai": "^6.9.1"
   },
   "devDependencies": {

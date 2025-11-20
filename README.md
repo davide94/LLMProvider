@@ -10,8 +10,20 @@ Unified LLM provider abstraction with built-in Langfuse tracing. Supports OpenAI
 
 ## Installation
 
+Configure npm to use GitHub registry for the `@davide94` scope:
+
 ```bash
-npm install llm-provider
+# Option 1: npm config
+npm config set @davide94:registry https://npm.pkg.github.com
+
+# Option 2: Add to .npmrc in your project
+echo "@davide94:registry=https://npm.pkg.github.com" >> .npmrc
+```
+
+Then install:
+
+```bash
+npm install @davide94/llm-provider
 ```
 
 ## Quick Start

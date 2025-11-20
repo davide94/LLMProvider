@@ -100,6 +100,12 @@ function createLLMError(options) {
 }
 
 // src/providers/openai.ts
+var import_sdk_node = require("@opentelemetry/sdk-node");
+var import_otel = require("@langfuse/otel");
+var sdk = new import_sdk_node.NodeSDK({
+  spanProcessors: [new import_otel.LangfuseSpanProcessor()]
+});
+sdk.start();
 var openaiClient = null;
 function getOpenAIClient(enableTracing) {
   if (!openaiClient) {

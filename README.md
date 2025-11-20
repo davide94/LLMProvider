@@ -29,14 +29,14 @@ npm install @davide94/llm-provider
 ## Quick Start
 
 ```typescript
-import { generate, createLLM, getPrompt } from 'llm-provider'
+import { generate, createLLM, getPrompt } from '@davide94/llm-provider'
 
 // Simple generation (provider auto-detected from model name)
 const result = await generate('gpt-4', 'Hello, world!')
 
 // With configuration
 const llm = createLLM({
-  model: 'claude-3-5-sonnet-20241022',
+  model: 'gpt-4',
   temperature: 0.7,
   maxTokens: 1000,
   systemPrompt: 'You are a helpful assistant.'
@@ -52,7 +52,7 @@ Fetch prompts and model configuration from Langfuse:
 
 ```typescript
 import { LangfuseClient } from '@langfuse/client'
-import { createLLM, getPrompt } from 'llm-provider'
+import { createLLM, getPrompt } from '@davide94/llm-provider'
 
 // Get prompt from Langfuse
   const prompt = await langfuse.prompt.get('my-prompt', { label: 'production' })
@@ -70,7 +70,7 @@ const response = await llm.generate('User input here')
 ## Structured Output
 
 ```typescript
-import { generateStructured } from 'llm-provider'
+import { generateStructured } from '@davide94/llm-provider'
 
 const schema = {
   type: 'object',
@@ -92,7 +92,7 @@ const result = await generateStructured(
 ## Multi-modal Input
 
 ```typescript
-import { createLLM } from 'llm-provider'
+import { createLLM } from '@davide94/llm-provider'
 
 const llm = createLLM({ model: 'gpt-4-vision-preview' })
 
@@ -122,10 +122,6 @@ LANGFUSE_BASE_URL=https://cloud.langfuse.com  # optional
 ```
 
 ## API Reference
-
-### `createLLM(config: LLMConfig): LLM`
-
-Create an LLM instance with configuration.
 
 ### `generate(model, prompt, options?): Promise<string>`
 

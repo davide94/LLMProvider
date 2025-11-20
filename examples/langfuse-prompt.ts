@@ -5,7 +5,7 @@
  * and use it with the unified LLM interface.
  */
 import { LangfuseClient } from '@langfuse/client'
-import { createLLM, generateStructured } from '../src'
+import { generate, generateStructured } from '@davide94/llm-provider'
 
 // Initialize Langfuse client
 const langfuse = new LangfuseClient()
@@ -23,16 +23,9 @@ async function main() {
     temperature: number
   }
 
-  // Create LLM with Langfuse configuration
-  const llm = createLLM({
-    model,
-    temperature,
-    systemPrompt
-  })
-
   // Example: Generate response
-  const response = await llm.generate('Your user input here...')
-  console.log('Response:', response.content)
+  const response = await generate(model, 'Your user input here...', { temperature, systemPrompt })
+  console.log('Response:', response)
 
   // Example: With structured output
   const schema = {

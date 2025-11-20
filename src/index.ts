@@ -3,7 +3,7 @@
  */
 
 // Core exports
-export { LLM, createLLM, generate, generateStructured, detectProvider } from './core/llm'
+export { LLM, generate, generateStructured } from './core/llm'
 export {
   LLMProvider,
   LLMReasoning,

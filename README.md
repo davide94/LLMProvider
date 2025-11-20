@@ -29,21 +29,18 @@ npm install @davide94/llm-provider
 ## Quick Start
 
 ```typescript
-import { generate, createLLM, getPrompt } from '@davide94/llm-provider'
+import { generate, generateStructured } from '@davide94/llm-provider'
 
 // Simple generation (provider auto-detected from model name)
 const result = await generate('gpt-4', 'Hello, world!')
 
 // With configuration
-const llm = createLLM({
-  model: 'gpt-4',
+const response = await generate('gpt-4', 'Explain quantum computing', {
   temperature: 0.7,
   maxTokens: 1000,
   systemPrompt: 'You are a helpful assistant.'
 })
-
-const response = await llm.generate('Explain quantum computing')
-console.log(response.content)
+console.log(response)
 ```
 
 ## Using with Langfuse
@@ -52,19 +49,19 @@ Fetch prompts and model configuration from Langfuse:
 
 ```typescript
 import { LangfuseClient } from '@langfuse/client'
-import { createLLM, getPrompt } from '@davide94/llm-provider'
+import { generate } from '@davide94/llm-provider'
+
+const langfuse = new LangfuseClient()
 
 // Get prompt from Langfuse
-  const prompt = await langfuse.prompt.get('my-prompt', { label: 'production' })
-const { model, temperature } = config as { model: string; temperature: number }
+const prompt = await langfuse.prompt.get('my-prompt', { label: 'production' })
+const systemPrompt = prompt.compile()
+const { model, temperature } = prompt.config as { model: string; temperature: number }
 
-const llm = createLLM({
-  model,
+const response = await generate(model, 'User input here', {
   temperature,
-  systemPrompt: prompt
+  systemPrompt
 })
-
-const response = await llm.generate('User input here')
 ```
 
 ## Structured Output
@@ -92,11 +89,9 @@ const result = await generateStructured(
 ## Multi-modal Input
 
 ```typescript
-import { createLLM } from '@davide94/llm-provider'
+import { generate } from '@davide94/llm-provider'
 
-const llm = createLLM({ model: 'gpt-4-vision-preview' })
-
-const response = await llm.generate([
+const response = await generate('gpt-4-vision-preview', [
   {
     role: 'user',
     content: [

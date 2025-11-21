@@ -65,37 +65,32 @@ interface LLMContentPartText {
  */
 interface LLMContentPartImage {
     type: 'input_image';
-    image_url: {
-        url: string;
-        detail?: 'auto' | 'low' | 'high';
-    };
+    image_url: string;
 }
 /**
  * File URL content part
  */
 interface LLMContentPartFileURL {
     type: 'input_file';
-    file_url: {
-        url?: string;
-    };
+    file_url: string;
 }
 /**
  * File id content part
  */
 interface LLMContentPartFileId {
-    type: 'input_file';
+    type: 'file';
     file_url: {
-        file_id?: string;
+        file_id: string;
     };
 }
 /**
  * File base64 content part
  */
 interface LLMContentPartFileBase64 {
-    type: 'input_file';
+    type: 'file';
     file_url: {
-        file_data?: string;
-        filename?: string;
+        file_data: string;
+        filename: string;
     };
 }
 /**

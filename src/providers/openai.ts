@@ -45,7 +45,8 @@ function convertContentPart(part: LLMContentPart): OpenAI.Responses.ResponseInpu
     case 'text':
     case 'input_image':
     case 'input_file':
-      return part as OpenAI.Responses.ResponseInputContent
+    case 'file':
+          return part as OpenAI.Responses.ResponseInputContent
     default:
       throw new LLMError({
         message: `Unsupported content part type: ${(part as { type: string }).type}`,

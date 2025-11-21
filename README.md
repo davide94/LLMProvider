@@ -96,7 +96,7 @@ const response = await generate('gpt-4-vision-preview', [
     role: 'user',
     content: [
       { type: 'text', text: 'What is in this image?' },
-      { type: 'input_image', image_url: { url: 'https://...' } }
+      { type: 'input_image', image_url: 'https://...' }
     ]
   }
 ])

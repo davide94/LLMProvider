@@ -81,10 +81,7 @@ export interface LLMContentPartText {
  */
 export interface LLMContentPartImage {
   type: 'input_image'
-  image_url: {
-    url: string
-    detail?: 'auto' | 'low' | 'high'
-  }
+  image_url: string
 }
 
 /**
@@ -92,18 +89,16 @@ export interface LLMContentPartImage {
  */
 export interface LLMContentPartFileURL {
   type: 'input_file'
-  file_url: {
-    url?: string
-  }
+  file_url: string
 }
 
 /**
  * File id content part
  */
 export interface LLMContentPartFileId {
-  type: 'input_file'
+  type: 'file'
   file_url: {
-    file_id?: string
+    file_id: string
   }
 }
 
@@ -111,10 +106,10 @@ export interface LLMContentPartFileId {
  * File base64 content part
  */
 export interface LLMContentPartFileBase64 {
-  type: 'input_file'
+  type: 'file'
   file_url: {
-    file_data?: string
-    filename?: string
+    file_data: string
+    filename: string
   }
 }
 
